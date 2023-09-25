@@ -1,0 +1,20 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: httpd-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      -name:scripts
+       run:
+       docker build -t app
+       docker login -u
+       docker tag app
+       docker push 
+    
